@@ -886,6 +886,7 @@ function createRemarkStreamlitLogo() {
 /**
  * Factory function to create typographical symbols plugin
  */
+function createRemarkHexColors() { return () => (tree) => tree }
 function createRemarkTypographicalSymbols() {
   return () => (tree: MdastRoot) => {
     visit(tree, (node, _index, parent) => {
@@ -1128,6 +1129,7 @@ export const RenderedMarkdown = memo(function RenderedMarkdown({
       ...BASE_REMARK_PLUGINS,
       createRemarkColoringAndSmall(theme, colorMapping),
       createRemarkMaterialIcons(theme),
+      createRemarkHexColors(),
     ]
 
     if (needsEmoji && wrappedEmojiPlugin) {
